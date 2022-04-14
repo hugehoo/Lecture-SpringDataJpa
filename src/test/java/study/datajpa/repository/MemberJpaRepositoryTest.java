@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Rollback(value = false)
-@Transactional // 이게 없으면 에러발생 -> JPA 의 모든 데이터 변경은 transactional 안에서 작동해야하기 때문
+@Transactional
 class MemberJpaRepositoryTest {
 
     @Autowired
@@ -25,7 +25,7 @@ class MemberJpaRepositoryTest {
 
         assertEquals(findMember.getId(), member1.getId());
         assertEquals(findMember.getUsername(), member1.getUsername());
-        assertEquals(findMember, member1); // 동일 트랜잭션 안에서는 같은 인스턴스인게 보장된다.
+        assertEquals(findMember, member1);
 
     }
 

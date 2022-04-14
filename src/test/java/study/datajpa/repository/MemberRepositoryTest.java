@@ -27,7 +27,6 @@ class MemberRepositoryTest {
         Member member = Member.builder().username("memberA").build();
         Member savedMember = memberRepository.save(member);
 
-        // 원래는 orElse() 사용하여 꺼내는 것이 바람직하다.
         Member findMember = memberRepository.findById(savedMember.getId()).get();
 
         assertEquals(findMember.getId(), member.getId());
